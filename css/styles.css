@@ -448,6 +448,10 @@ h1,
   gap: 14px;
 }
 
+.contact-form .hidden {
+  display: none;
+}
+
 .contact-form label {
   display: flex;
   flex-direction: column;

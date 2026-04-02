@@ -65,11 +65,16 @@ scrollButtons.forEach(button => {
 if (contactForm && formStatus) {
   contactForm.addEventListener('submit', event => {
     event.preventDefault();
-    formStatus.textContent = 'Danke fuer Ihr Vertrauen. Ich melde mich kurzfristig.';
-    contactForm.reset();
-    setTimeout(() => {
-      formStatus.textContent = '';
-    }, 4000);
+    const data = new FormData(contactForm);
+    fetch('/', { method: 'POST', body: data })
+      .then(() => {
+        formStatus.textContent = 'Danke für Ihr Vertrauen. Ich melde mich kurzfristig.';
+        contactForm.reset();
+        setTimeout(() => { formStatus.textContent = ''; }, 5000);
+      })
+      .catch(() => {
+        formStatus.textContent = 'Etwas hat nicht geklappt. Bitte schreiben Sie mir direkt an franz.wiehler@gmx.de';
+      });
   });
 }
 
