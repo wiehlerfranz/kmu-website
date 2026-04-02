@@ -285,6 +285,16 @@ h1,
   overflow: hidden;
 }
 
+@media (max-width: 640px) {
+  .slider-track {
+    grid-auto-columns: 100%;
+  }
+
+  .reference-card {
+    min-height: auto;
+  }
+}
+
 .reference-card {
   padding: 28px;
   border-radius: var(--radius-md);
