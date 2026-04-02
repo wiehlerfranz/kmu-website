@@ -66,7 +66,13 @@ if (contactForm && formStatus) {
   contactForm.addEventListener('submit', event => {
     event.preventDefault();
     const data = new FormData(contactForm);
-    fetch('/', { method: 'POST', body: data })
+    const payload = new URLSearchParams();
+    data.forEach((value, key) => payload.append(key, value));
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: payload.toString()
+    })
       .then(() => {
         formStatus.textContent = 'Danke für Ihr Vertrauen. Ich melde mich kurzfristig.';
         contactForm.reset();
