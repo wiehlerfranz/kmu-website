@@ -86,18 +86,20 @@ if (contactForm && formStatus) {
 
 const slider = document.querySelector('[data-slider]');
 if (slider) {
+  const viewport = slider.querySelector('.slider-viewport');
   const track = slider.querySelector('.slider-track');
-  const slides = Array.from(track.children);
+  const slides = Array.from(track.querySelectorAll('.reference-card'));
   let index = 0;
-  let slideWidth = slides[0]?.getBoundingClientRect().width || 0;
 
   const updateSlider = () => {
-    slideWidth = slides[0]?.getBoundingClientRect().width || 0;
+    const slideWidth = viewport?.getBoundingClientRect().width || 0;
+    index = Math.max(0, Math.min(index, slides.length - 1));
     track.style.transform = `translateX(${-index * (slideWidth + 16)}px)`;
   };
 
   slider.addEventListener('click', event => {
-    const direction = event.target.getAttribute('data-direction');
+    const button = event.target.closest('[data-direction]');
+    const direction = button?.getAttribute('data-direction');
     if (!direction) return;
     if (direction === 'prev' && index > 0) {
       index -= 1;

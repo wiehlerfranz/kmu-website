@@ -272,24 +272,28 @@ h1,
 
 .reference-slider {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 18px;
   align-items: center;
 }
 
-.slider-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(260px, 1fr);
-  gap: 16px;
+.slider-viewport {
   overflow: hidden;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.35s ease;
+}
+
+.slider-track .reference-card {
+  flex: 0 0 100%;
+  min-width: 0;
 }
 
 @media (max-width: 640px) {
-  .slider-track {
-    grid-auto-columns: 100%;
-  }
-
   .reference-card {
     min-height: auto;
   }
