@@ -86,6 +86,8 @@ if (contactForm && formStatus) {
 
 const slider = document.querySelector('[data-slider]');
 if (slider) {
+  const prevButton = slider.querySelector('[data-direction="prev"]');
+  const nextButton = slider.querySelector('[data-direction="next"]');
   const viewport = slider.querySelector('.slider-viewport');
   const track = slider.querySelector('.slider-track');
   const slides = Array.from(track.querySelectorAll('.reference-card'));
@@ -95,6 +97,8 @@ if (slider) {
     const slideWidth = viewport?.getBoundingClientRect().width || 0;
     index = Math.max(0, Math.min(index, slides.length - 1));
     track.style.transform = `translateX(${-index * (slideWidth + 16)}px)`;
+    if (prevButton) prevButton.disabled = index === 0;
+    if (nextButton) nextButton.disabled = index === slides.length - 1;
   };
 
   slider.addEventListener('click', event => {
