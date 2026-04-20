@@ -67,7 +67,7 @@ img {
 }
 
 .brand img {
-  height: 130px;
+  height: 150px;
 }
 
 .primary-nav ul {
@@ -527,7 +527,7 @@ h1,
 
 @media (max-width: 1024px) {
   .brand img {
-    height: 92px;
+    height: 112px;
   }
   .primary-nav {
     position: absolute;
@@ -563,7 +563,7 @@ h1,
   }
 
   .brand img {
-    height: 56px;
+    height: 70px;
   }
 
   main {
