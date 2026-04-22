@@ -703,3 +703,72 @@ h1,
 .footer-legal a:hover {
   text-decoration: underline;
 }
+
+/* Privacy Policy Styling - Compact & Space-Efficient */
+.privacy-policy {
+  padding: 32px;
+}
+
+.privacy-content {
+  font-size: 0.925rem;
+  line-height: 1.5;
+  column-count: 2;
+  column-gap: 28px;
+}
+
+.privacy-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--petrol-dark);
+  margin-top: 18px;
+  margin-bottom: 6px;
+  column-span: all;
+  line-height: 1.3;
+}
+
+.privacy-content h3:first-of-type {
+  margin-top: 0;
+}
+
+.privacy-content h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--slate);
+  margin-top: 12px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.privacy-content p {
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.privacy-content a {
+  color: var(--petrol);
+  text-decoration: none;
+}
+
+.privacy-content a:hover {
+  text-decoration: underline;
+}
+
+.privacy-disclaimer {
+  font-size: 0.85rem;
+  color: var(--slate);
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(1, 55, 68, 0.08);
+  column-span: all;
+}
+
+@media (max-width: 768px) {
+  .privacy-content {
+    column-count: 1;
+    font-size: 0.9rem;
+  }
+
+  .privacy-policy {
+    padding: 24px;
+  }
+}
