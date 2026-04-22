@@ -718,6 +718,7 @@ h1,
   line-height: 1.5;
   column-count: 2;
   column-gap: 28px;
+  column-fill: balance;
 }
 
 .privacy-content h3 {
@@ -768,7 +769,7 @@ h1,
 
 @media (max-width: 768px) {
   .privacy-content {
-    column-count: 1;
+    column-count: 1 !important;
     font-size: 0.9rem;
     column-fill: auto;
   }
@@ -785,5 +786,13 @@ h1,
 
   section {
     scroll-margin-top: 130px;
+  }
+}
+
+/* Additional mobile breakpoint for privacy content */
+@media (max-width: 1024px) {
+  .privacy-content {
+    column-count: 1;
+    font-size: 0.9rem;
   }
 }
