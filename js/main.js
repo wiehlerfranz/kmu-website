@@ -43,6 +43,28 @@ const highlightNav = () => {
 window.addEventListener('scroll', highlightNav);
 highlightNav();
 
+const scrollHeader = document.querySelector('.site-header');
+const smoothScrollTo = target => {
+  const headerHeight = scrollHeader?.getBoundingClientRect().height || 0;
+  const targetY = window.scrollY + target.getBoundingClientRect().top - headerHeight - 12;
+  window.scrollTo({ top: targetY, behavior: 'smooth' });
+};
+
+const navAnchors = document.querySelectorAll('.primary-nav a, .footer-legal a');
+navAnchors.forEach(link => {
+  const href = link.getAttribute('href') || '';
+  if (!href.startsWith('#')) return;
+  link.addEventListener('click', event => {
+    const target = document.querySelector(href);
+    if (!target) return;
+    event.preventDefault();
+    smoothScrollTo(target);
+    if (primaryNav && navToggle && primaryNav.getAttribute('aria-expanded') === 'true') {
+      navToggle.click();
+    }
+  });
+});
+
 if (navToggle && primaryNav) {
   navToggle.addEventListener('click', () => {
     const expanded = navToggle.getAttribute('aria-expanded') === 'true';

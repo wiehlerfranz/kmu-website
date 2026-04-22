@@ -770,10 +770,17 @@ h1,
   .privacy-content {
     column-count: 1;
     font-size: 0.9rem;
+    column-fill: auto;
   }
 
   .privacy-policy {
     padding: 24px;
+  }
+
+  .privacy-content h3,
+  .privacy-content h4,
+  .privacy-disclaimer {
+    break-inside: avoid-column;
   }
 
   section {
