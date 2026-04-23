@@ -768,14 +768,18 @@ h1,
 }
 
 @media (max-width: 768px) {
+  .privacy-policy {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 24px;
+  }
+
   .privacy-content {
     column-count: 1 !important;
     font-size: 0.9rem;
     column-fill: auto;
-  }
-
-  .privacy-policy {
-    padding: 24px;
+    display: block !important;
   }
 
   .privacy-content h3,
@@ -791,8 +795,14 @@ h1,
 
 /* Additional mobile breakpoint for privacy content */
 @media (max-width: 1024px) {
+  .privacy-policy {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
   .privacy-content {
-    column-count: 1;
+    column-count: 1 !important;
     font-size: 0.9rem;
   }
 }
